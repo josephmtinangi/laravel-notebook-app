@@ -22,3 +22,16 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Notebook::class, function (Faker\Generator $faker) {
+    $name = $faker->realText(20);
+    $slug = str_slug($name, '-');
+
+    return [
+    	'name' => $name,
+    	'slug' => $slug,
+    	'description' => $faker->paragraph(3),
+    	'color' => $faker->hexcolor
+    ];
+});
+

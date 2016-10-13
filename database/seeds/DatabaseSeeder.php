@@ -2,6 +2,10 @@
 
 use Illuminate\Database\Seeder;
 
+use App\User;
+
+use App\Notebook;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        User::truncate();
+        Notebook::truncate();
+
+        factory(App\User::class, 5)->create()->each(function($u) {
+        	$u->notebooks()->save(factory(App\Notebook::class)->make());
+        });
     }
 }
