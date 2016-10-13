@@ -35,3 +35,14 @@ $factory->define(App\Notebook::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Note::class, function (Faker\Generator $faker) {
+    $title = $faker->realText(40);
+    $slug = str_slug($title, '-');
+
+    return [
+        'title' => $title,
+        'slug' => $slug,
+        'content' => $faker->paragraphs(3, true),
+        'color' => $faker->hexcolor
+    ];
+});

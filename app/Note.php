@@ -12,9 +12,4 @@ class Note extends Model
     {
     	return $this->belongsTo('App\Notebook');
     }
-
-    public function user()
-    {
-    	return $this->belongsTo('App\User');
-    }
 }
