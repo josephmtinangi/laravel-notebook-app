@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="container">
+<div class="container auth">
 	<div class="row">
 		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
-			<div class="panel panel-primary">
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Login</h3>
 				</div>
