@@ -19,9 +19,3 @@ const app = new Vue({
     el: '#app'
 });
 
-$(document).ready(function(){
-   $('[data-toggle="offcanvas"]').click(function(){
-       $("#navigation").toggleClass("hidden-xs");
-   });
-});
-
