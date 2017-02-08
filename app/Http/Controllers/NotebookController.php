@@ -76,7 +76,8 @@ class NotebookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $notebook = Notebook::whereUserId(Auth::user()->id)->whereId($id)->first();
+        return view('notebooks.edit', compact('notebook'));
     }
 
     /**
@@ -88,7 +89,17 @@ class NotebookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $notebook = Notebook::whereUserId(Auth::user()->id)->whereId($id)->first();
+        if ($notebook) {
+            $notebook->name = $request->input('name');
+            $notebook->slug = str_slug($request->input('name'), '-');
+            $notebook->color = $request->input('color');
+            $notebook->description = $request->input('description');
+
+            $notebook->save();
+        }
+
+        return redirect('notebooks');
     }
 
     /**

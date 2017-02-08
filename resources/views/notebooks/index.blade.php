@@ -11,7 +11,7 @@
 				<div class="col-sm-4">
 					 <div class="panel panel-default" style="border-color: {{ $notebook->color }}">
 					 	<div class="panel-heading" style="background: {{ $notebook->color }}; color: #fff">
-					 		<h3 class="panel-title">{{ $notebook->name }}</h3>
+					 		<h3 class="panel-title">{{ $notebook->name }} <a href="{{ url('notebooks/'.$notebook->id.'/edit') }}"><i class="fa fa-edit"></i></a> </h3>
 					 	</div>
 					 	<div class="panel-body">
 					 		<strong>Description</strong> <br>
