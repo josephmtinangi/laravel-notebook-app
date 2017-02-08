@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::Auth();
 
 Route::resource('notebooks', 'NotebookController');
+
+Route::get('notebooks/{id}/notes', 'NotebookController@show');

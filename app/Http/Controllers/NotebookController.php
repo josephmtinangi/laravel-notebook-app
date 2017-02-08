@@ -65,7 +65,8 @@ class NotebookController extends Controller
      */
     public function show($id)
     {
-        //
+        $notebook = Notebook::whereUserId(Auth::user()->id)->whereId($id)->first();
+        return view('notebooks.show', compact('notebook'));
     }
 
     /**
