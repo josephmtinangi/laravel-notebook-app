@@ -110,6 +110,10 @@ class NotebookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $notebook = Notebook::whereUserId(Auth::user()->id)->whereId($id)->first();
+
+        $notebook->delete();
+
+        return redirect('notebooks');
     }
 }

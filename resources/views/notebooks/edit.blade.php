@@ -40,6 +40,27 @@
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h3 class="panel-title">Danger zone</h3>
+				</div>
+				<div class="panel-body">
+					<form action="{{ url('notebooks/'.$notebook
+					->id) }}" method="POST">
+						{{ method_field('delete') }}
+						{{ csrf_field() }}
+
+						<div class="form-group">
+							<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+						</div>
+
+					</form>
+				</div>
+			</div>			
+		</div>
+	</div>
 </div>
 
 @endsection
