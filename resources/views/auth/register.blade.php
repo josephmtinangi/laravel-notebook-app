@@ -16,7 +16,7 @@
 					<form method="post" action="{{ url('register') }}">
 						{{ csrf_field() }}
 						<div class="form-group">
-							<input type="name" name="name" class="form-control" placeholder="Name">
+							<input type="text" name="name" class="form-control" placeholder="Name">
 						</div>						
 						<div class="form-group">
 							<input type="email" name="email" class="form-control" placeholder="Email Address">
