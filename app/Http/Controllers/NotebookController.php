@@ -23,7 +23,7 @@ class NotebookController extends Controller
      */
     public function index()
     {
-        $notebooks = Auth::user()->notebooks()->with('notes')->get();
+        $notebooks = Auth::user()->notebooks()->with('notes')->latest()->get();
         return view('notebooks.index', compact('notebooks'));
     }
 
@@ -34,7 +34,7 @@ class NotebookController extends Controller
      */
     public function create()
     {
-        //
+        return view('notebooks.create');
     }
 
     /**
@@ -45,7 +45,16 @@ class NotebookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        $notebook = new Notebook;
+        $notebook->name = $request->input('name');
+        $notebook->slug = str_slug($request->input('name'), '-');
+        $notebook->color = $request->input('color');
+        $notebook->description = $request->input('description');
+
+        $user->notebooks()->save($notebook);
+
+        return redirect('notebooks');
     }
 
     /**

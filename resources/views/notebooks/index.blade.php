@@ -9,8 +9,8 @@
 		<div class="row">
 			@foreach($notebookSet as $notebook)
 				<div class="col-sm-4">
-					 <div class="panel panel-default">
-					 	<div class="panel-heading">
+					 <div class="panel panel-default" style="border-color: {{ $notebook->color }}">
+					 	<div class="panel-heading" style="background: {{ $notebook->color }}; color: #fff">
 					 		<h3 class="panel-title">{{ $notebook->name }}</h3>
 					 	</div>
 					 	<div class="panel-body">
@@ -22,16 +22,21 @@
 					 	</div>
 					 </div>
 				</div>
-				@if( ! $loop->remaining)
-				<div class="col-sm-4">
-					<div class="panel panel-default">
-						<div class="panel-body text-center">
-							<a href="{{ url('notebooks/create') }}" class="btn btn-link"><i class="fa fa-plus fa-3x"></i></a>
+			@endforeach
+
+				@if($loop->last)
+					<div class="col-sm-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">#</h3>
+							</div>
+							<div class="panel-body text-center">
+								<a href="{{ url('notebooks/create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add</a>
+							</div>
 						</div>
 					</div>
-				</div>
 				@endif
-			@endforeach
+
 		</div>
 	@endforeach
 
